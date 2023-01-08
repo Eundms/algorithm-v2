@@ -5,35 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e44b42d-158b-44b7-b6bf-5602426a0654" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Baseline.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_1936/P1936.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_1936/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_1936/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2058/P2058.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2058/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2058/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2063/P2063.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2063/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2063/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2068/P2068.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2068/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2068/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2071/P2071.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2071/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d1/_2071/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1204_R/P1204.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1204_R/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1204_R/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1209/P1209.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1209/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1209/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1959/P1959.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1959/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1959/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1961_N/P1961.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1961_N/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1961_N/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1974_N/P1974.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1974_N/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1974_N/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,32 +52,59 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/user/Documents/Desktop/inflearn/algorithm-v2/src/main/java/swexpertacademy/d1/_1936",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Documents/Desktop/inflearn/algorithm-v2/src/main/java/swexpertacademy/d2/_1974&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Documents\Desktop\inflearn\algorithm-v2\src\main\java\swexpertacademy\d2\_1974" />
+      <recent name="C:\Users\user\Documents\Desktop\inflearn\algorithm-v2\src\main\java\swexpertacademy\d2\_1204" />
       <recent name="C:\Users\user\Documents\Desktop\inflearn\algorithm-v2\src\main\java\swexpertacademy\d1\_1936" />
       <recent name="C:\Users\user\Documents\Desktop\inflearn\algorithm-v2\src\main\java\swexpertacademy\d1\_2058" />
       <recent name="C:\Users\user\Documents\Desktop\inflearn\algorithm-v2\src\main\java\swexpertacademy\d1\_2063" />
-      <recent name="C:\Users\user\Documents\Desktop\inflearn\algorithm-v2\src\main\java\swexpertacademy\d1\_2068" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Documents\Desktop\inflearn\algorithm-v2\src\main\java\d1\_2071" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.P1936">
+  <component name="RunManager" selected="Application.P1974">
+    <configuration name="P1204" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d2._1204_R.P1204" />
+      <module name="algorithm-v2.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="swexpertacademy.d2._1204_R.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="P1209" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d2._1209.P1209" />
+      <module name="algorithm-v2.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="swexpertacademy.d2._1209.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="P1936" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="swexpertacademy.d1._1936.P1936" />
       <module name="algorithm-v2.main" />
@@ -102,12 +118,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="P2058" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d1._2058.P2058" />
+    <configuration name="P1959" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d2._1959.P1959" />
       <module name="algorithm-v2.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="swexpertacademy.d1._2058.*" />
+          <option name="PATTERN" value="swexpertacademy.d2._1959.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,38 +131,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="P2063" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d1._2063.P2063" />
+    <configuration name="P1974" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d2._1974.P1974" />
       <module name="algorithm-v2.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="swexpertacademy.d1._2063.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="P2068" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d1._2068.P2068" />
-      <module name="algorithm-v2.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="swexpertacademy.d1._2068.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="swexpertacademy.d1._2071.P2071" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d1._2071.P2071" />
-      <module name="algorithm-v2.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="swexpertacademy.d1._2071.*" />
+          <option name="PATTERN" value="swexpertacademy.d2._1974.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -156,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.P1974" />
+        <item itemvalue="Application.P1209" />
+        <item itemvalue="Application.P1204" />
+        <item itemvalue="Application.P1959" />
         <item itemvalue="Application.P1936" />
-        <item itemvalue="Application.P2058" />
-        <item itemvalue="Application.P2063" />
-        <item itemvalue="Application.P2068" />
-        <item itemvalue="Application.swexpertacademy.d1._2071.P2071" />
       </list>
     </recent_temporary>
   </component>
@@ -172,7 +162,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1673138549606</updated>
-      <workItem from="1673138551780" duration="7866000" />
+      <workItem from="1673138551780" duration="8145000" />
+      <workItem from="1673151165070" duration="4165000" />
+      <workItem from="1673165394140" duration="507000" />
+      <workItem from="1673166046263" duration="886000" />
+      <workItem from="1673167069903" duration="2302000" />
+      <workItem from="1673176654475" duration="1923000" />
     </task>
     <servers />
   </component>
