@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e44b42d-158b-44b7-b6bf-5602426a0654" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1204_R/P1204.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1204_R/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1204_R/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1209/P1209.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1209/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1209/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1959/P1959.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1959/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1959/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1961_N/P1961.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1961_N/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1961_N/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1974_N/P1974.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1974_N/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/swexpertacademy/d2/_1974_N/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +150,7 @@
       <workItem from="1673165394140" duration="507000" />
       <workItem from="1673166046263" duration="886000" />
       <workItem from="1673167069903" duration="2302000" />
-      <workItem from="1673176654475" duration="1923000" />
+      <workItem from="1673176654475" duration="2283000" />
     </task>
     <servers />
   </component>
