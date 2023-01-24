@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e44b42d-158b-44b7-b6bf-5602426a0654" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/baekjoon/P5597.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +62,7 @@
       <recent name="C:\Users\user\Documents\Desktop\inflearn\algorithm-v2\src\main\java\d1\_2071" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.P1974">
+  <component name="RunManager" selected="Application.P5597">
     <configuration name="P1204" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="swexpertacademy.d2._1204_R.P1204" />
       <module name="algorithm-v2.main" />
@@ -81,19 +82,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="swexpertacademy.d2._1209.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="P1936" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d1._1936.P1936" />
-      <module name="algorithm-v2.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="swexpertacademy.d1._1936.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,13 +115,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="P5597" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="baekjoon.P5597" />
+      <module name="algorithm-v2.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="baekjoon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.P5597" />
         <item itemvalue="Application.P1974" />
         <item itemvalue="Application.P1209" />
         <item itemvalue="Application.P1204" />
         <item itemvalue="Application.P1959" />
-        <item itemvalue="Application.P1936" />
       </list>
     </recent_temporary>
   </component>
@@ -151,6 +152,9 @@
       <workItem from="1673166046263" duration="886000" />
       <workItem from="1673167069903" duration="2302000" />
       <workItem from="1673176654475" duration="2283000" />
+      <workItem from="1673440283501" duration="1212000" />
+      <workItem from="1673653168312" duration="48000" />
+      <workItem from="1674561973795" duration="658000" />
     </task>
     <servers />
   </component>
