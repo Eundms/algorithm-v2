@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e44b42d-158b-44b7-b6bf-5602426a0654" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/baekjoon/P5597.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/baekjoon/P2566.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/baekjoon/P2738.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,46 +63,7 @@
       <recent name="C:\Users\user\Documents\Desktop\inflearn\algorithm-v2\src\main\java\d1\_2071" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.P5597">
-    <configuration name="P1204" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d2._1204_R.P1204" />
-      <module name="algorithm-v2.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="swexpertacademy.d2._1204_R.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="P1209" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d2._1209.P1209" />
-      <module name="algorithm-v2.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="swexpertacademy.d2._1209.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="P1959" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="swexpertacademy.d2._1959.P1959" />
-      <module name="algorithm-v2.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="swexpertacademy.d2._1959.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.P2587">
     <configuration name="P1974" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="swexpertacademy.d2._1974.P1974" />
       <module name="algorithm-v2.main" />
@@ -115,8 +77,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="P5597" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="baekjoon.P5597" />
+    <configuration name="P2566" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="baekjoon.array.P2566" />
+      <module name="algorithm-v2.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="baekjoon.array.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="P2587" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="baekjoon.P2587" />
       <module name="algorithm-v2.main" />
       <extension name="coverage">
         <pattern>
@@ -128,13 +103,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="P2738" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="baekjoon.array.P2738" />
+      <module name="algorithm-v2.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="baekjoon.array.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="P5597" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="baekjoon.array.P5597" />
+      <module name="algorithm-v2.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="baekjoon.array.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.P2587" />
+        <item itemvalue="Application.P2566" />
+        <item itemvalue="Application.P2738" />
         <item itemvalue="Application.P5597" />
         <item itemvalue="Application.P1974" />
-        <item itemvalue="Application.P1209" />
-        <item itemvalue="Application.P1204" />
-        <item itemvalue="Application.P1959" />
       </list>
     </recent_temporary>
   </component>
@@ -154,7 +155,8 @@
       <workItem from="1673176654475" duration="2283000" />
       <workItem from="1673440283501" duration="1212000" />
       <workItem from="1673653168312" duration="48000" />
-      <workItem from="1674561973795" duration="658000" />
+      <workItem from="1674561973795" duration="1323000" />
+      <workItem from="1674564418125" duration="1456000" />
     </task>
     <servers />
   </component>
