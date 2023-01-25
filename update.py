@@ -10,6 +10,7 @@ HEADER="""
 def main():
     content = ""
     content += HEADER
+<<<<<<< HEAD
 
     directories = []
     solveds = []
@@ -17,23 +18,21 @@ def main():
     for root, dirs, files in os.walk("."):#\\src\\main\\java
         dirs.sort()
         if root == '.':#\\src\\main\\java
-            for dir in ('main', 'java'):
+         for dir in ('main', 'java'):
                 try:
                     dirs.remove(dir)
                 except ValueError:
                     pass
             continue
-
         category = os.path.basename(root)
         directory = os.path.basename(os.path.dirname(root))
 
         if directory == 'java':
             continue
         if directory not in directories:
-            if directory in ["백준", "swexpertacademy","programmers"]:
+            if directory in ["백준", "swexpertacademy","프로그래머스"]:
                 content += "## 📚 {}\n".format(directory)
             directories.append(directory)
-
         content += "### 🚀 {}\n".format(category)
         content += "| 문제번호 | 링크 |\n"
         content += "| ----- | ----- |\n"
