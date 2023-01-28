@@ -1,5 +1,8 @@
 # [Silver IV] 균형잡힌 세상 - 4949 
 
+- line.length()-1으로 할 경우 ). 반례
+- 맨 마지막 스택 확인
+
 [문제 링크](https://www.acmicpc.net/problem/4949) 
 
 ### 성능 요약
