@@ -1,98 +1,70 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-
 public class Main {
+    // 어떤 K개의 글자를 가르쳐야 학생들이 읽을 수 있는 단어의 개수가 최대가 되는가?
     static int N, K;
+    static boolean[] alphaVisited;
+    static char[] commons = {'a', 'c', 'i', 'n', 't'};
     static String[] words;
-    static boolean[] alphabet;
-    static int count = 0;
-    static int result = 0;
+    static int maxReadableWordCnt = Integer.MIN_VALUE;
 
-    public static void main (String args[]) throws Exception{
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken()); // 단어 개수
+        K = Integer.parseInt(st.nextToken()); // 알파벳중 K개를 가르쳐야 함
 
-        st = new StringTokenizer(br.readLine());
-        N = Integer.parseInt(st.nextToken());
-        K = Integer.parseInt(st.nextToken());
-
-        words = new String[N];
-        alphabet = new boolean[26];
-
-        alphabet['a' - 'a'] = true;
-        alphabet['n' - 'a'] = true;
-        alphabet['t' - 'a'] = true;
-        alphabet['i' - 'a'] = true;
-        alphabet['c' - 'a'] = true;
-
-        for(int i = 0; i < N; i++){
-            words[i] = (br.readLine()).toString().replaceAll("[antic]", "");
+        words = new String[N]; // 단어들
+        for (int i = 0; i < N; i++) {
+            String word = br.readLine();
+            words[i] = word.substring(4, word.length() - 4);
         }
 
-        if(K < 5){
+        // anta tica
+        // a c i n t  : 공통적으로 가르쳐야 함
+        if (K < 5) { // 공통 알파벳도 가르치지 못함
             System.out.println(0);
-            return;
-        }
-        else if(26 == K){
-            System.out.println(N);
-            return;
-        }
-
-        count = 5;
-        result = countwords();
-
-        for(int i = 0; i < 26; i++){
-            if(alphabet[i] == false){
-                dfs(i);
+        } else {
+            // 26-5 개중 K-5개 선택
+            alphaVisited = new boolean[26];
+            for (char common : commons) {
+                alphaVisited[common - 'a'] = true;
             }
+            comb(0, 0);
+            System.out.println(maxReadableWordCnt);
         }
-        System.out.println(result);
+
     }
 
-    static void dfs(int index){
-        //1. 체크인
-        alphabet[index] = true;
-        count++;
-        //2. 목적지인가
-        if(count == K){
-            // 셀 수 있는 단어와 기존 max를 비교 하여 저장
-            result = Math.max(countwords(), result);
-        }
-        //3. 갈 수 있는 곳 순회
-        else{
-            for(int i = index + 1; i < 26; i++){
-                //4. 갈 수 있는가
-                if(alphabet[i] == false){
-                    //5. 간다
-                    dfs( i);
+    private static void comb(int cnt, int start) {
+        if (cnt == K - 5) {
+            //여기서 단어를 몇개 읽을 수 있는지 판단
+            int readableWordCnt = 0;
+            for (String word : words) {
+                boolean canRead = true;
+                for (int i = 0; i < word.length(); i++) {
+                    if (alphaVisited[word.charAt(i) - 'a'] == false) {
+                        canRead = false;
+                        break;
+                    }
+                }
+                if (canRead) {
+                    readableWordCnt+=1;
                 }
             }
+            maxReadableWordCnt = Math.max(maxReadableWordCnt, readableWordCnt);
+            return;
         }
-        //6. 체크아웃
-        alphabet[index] = false;
-        count--;
-    }
-
-    static int countwords() {
-        int counter = 0;
-
-        for(int i = 0; i < N; i++){
-            boolean possible = true;
-            String word =words[i];
-
-            for(int j = 0; j < word.length(); j++){
-                if(alphabet[word.charAt(j) - 'a'] == false){
-                    possible = false;
-                    break;
-                }
+        for (int i = start; i < 26; i++) {
+            if (alphaVisited[i]) {
+                continue;
             }
-            if(possible == true){
-                counter++;
-            }
+            alphaVisited[i] = true;
+            comb(cnt + 1, i + 1);
+            alphaVisited[i] = false;
         }
-        return counter;
     }
-
 }
