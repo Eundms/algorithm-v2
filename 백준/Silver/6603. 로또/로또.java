@@ -1,51 +1,46 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class Main {
-    static int[] array ;
-    static int K;
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
+    static int[] kArray;
+    static int[] selected;
 
-        while(true){
-            st  = new StringTokenizer(br.readLine());
-            K = Integer.parseInt(st.nextToken());
-            if (K==0){
+    public static void main(String[] args) throws IOException {
+        // 1 - 49 중 6개의 수 = 집합 S & 번호 선택
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st;
+        while (true) {
+            st = new StringTokenizer(br.readLine());
+            int k = Integer.parseInt(st.nextToken()); // 집합 S의 원소 수 _ 이중 6개 선택하기
+            if (k == 0) {
                 break;
             }
-            array = new int[K];
-            boolean[] visited=new boolean[K+1];
-            for(int k=0;k<K;k++){
-                array[k]= Integer.parseInt(st.nextToken());
+            kArray = new int[k]; // [ 집합 S중 6개 선택 ]
+            for (int i = 0; i < k; i++) {
+                kArray[i] = Integer.parseInt(st.nextToken());
             }
-            comb1(array,visited,0,K,6);
+
+            selected = new int[6];
+            comb(0, 0);
             System.out.println();
         }
 
     }
-    static Stack<Integer> answer = new Stack<>();
 
-    static void comb1(int[] arr, boolean[] visited, int start, int n, int r) {
-        if(r == 0) {
-            print(arr, visited);
-            return;
-        } else {
-            for(int i = start; i < n; i++) {
-                visited[i] = true;
-                comb1(arr, visited, i + 1, n, r - 1);
-                visited[i] = false;
+    private static void comb(int cnt, int start) {
+        if(cnt==6){
+            for(int i=0;i<6;i++){
+                System.out.print(kArray[selected[i]]+" ");
             }
+            System.out.println();
+            return;
         }
-    }
-    static void print(int[] arr, boolean[] visited) {
-        for(int i = 0; i < arr.length; i++) {
-            if(visited[i] == true)
-                System.out.print(arr[i] + " ");
+        for (int i = start; i < kArray.length; i++) {
+            selected[cnt] = i;
+            comb(cnt+1,i+1);
         }
-        System.out.println();
     }
 }
