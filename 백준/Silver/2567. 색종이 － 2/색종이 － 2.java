@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
@@ -14,7 +13,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));//검은 스카프의 수
 
-        //for(int test = 1; test<=3;test++) {
         totalCnt=0;
         blackN = Integer.parseInt(br.readLine());
 
@@ -30,8 +28,7 @@ public class Main {
                 }
             }
         }
-        //printMatrix();
-        //System.out.println("===========");
+
         for(int i=0;i<MAX_LEN+1;i++) {
             for(int j=0;j<MAX_LEN+1;j++) {
                 if(box[i][j]==1) {
@@ -39,21 +36,16 @@ public class Main {
                 }
             }
         }
+        //printMatrix();
         System.out.println(totalCnt);
-
-
-        //}
 
     }
 
+    static int[][] way = new int[][] {{1,0},{-1,0},{0,1},{0,-1}}; //상하좌우 방향
 
     private static void meltBlack(int i, int j) {
         boolean visited[][] = new boolean[MAX_LEN+1][MAX_LEN+1];
-        Queue<int[]> queue = new ArrayDeque<>(); // 둘레만 넣음
-        queue.add(new int[] {i,j});
-
-        while(!queue.isEmpty()) { // 큐가 비어있지 않을 때까지 , 2와 인접한 1을 모두 2로 만든다.
-            int[] now = queue.poll();
+            int[] now = new int[]{i,j};
             for(int w=0;w<4;w++) {
                 int nx = now[0]+way[w][0];
                 int ny = now[1]+way[w][1];
@@ -64,14 +56,9 @@ public class Main {
                     totalCnt+=1;
                     box[now[0]][now[1]] = 2;
                 }
-
                 visited[nx][ny] = true; // 방문 처리를 한다.
             }
-        }
     }
-
-
-    static int[][] way = new int[][] {{1,0},{-1,0},{0,1},{0,-1}}; //상하좌우 방향
 
     private static void printMatrix() { // 디버깅용 함수
         for(int i=0;i<100;i++) {
@@ -81,6 +68,4 @@ public class Main {
             System.out.println();
         }
     }
-
-
 }
