@@ -44,20 +44,17 @@ public class Main {
     static int[][] way = new int[][] {{1,0},{-1,0},{0,1},{0,-1}}; //상하좌우 방향
 
     private static void meltBlack(int i, int j) {
-        boolean visited[][] = new boolean[MAX_LEN+1][MAX_LEN+1];
-            int[] now = new int[]{i,j};
-            for(int w=0;w<4;w++) {
-                int nx = now[0]+way[w][0];
-                int ny = now[1]+way[w][1];
+        int[] now = new int[]{i,j};
+        for(int w=0;w<4;w++) {
+            int nx = now[0]+way[w][0];
+            int ny = now[1]+way[w][1];
 
-                if(nx<0 || nx > MAX_LEN || ny<0 || ny>MAX_LEN) {continue;} //범위 상황봐서 바꿔야 함
-                if(visited[nx][ny])continue; // 방문한 적이 있으면
-                if(box[nx][ny]==0) { //다음으로 갈 곳이 흰색
-                    totalCnt+=1;
-                    box[now[0]][now[1]] = 2;
-                }
-                visited[nx][ny] = true; // 방문 처리를 한다.
+            if(nx<0 || nx > MAX_LEN || ny<0 || ny>MAX_LEN) {continue;} //범위 상황봐서 바꿔야 함
+            if(box[nx][ny]==0) { //다음으로 갈 곳이 흰색
+                totalCnt+=1;
+                box[now[0]][now[1]] = 2;
             }
+        }
     }
 
     private static void printMatrix() { // 디버깅용 함수
