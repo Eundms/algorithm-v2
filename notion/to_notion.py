@@ -48,9 +48,12 @@ def parse_problem_details(markdown_file, answer_file):
     icon = get_icon_url(teir, grade)
 
     p = soup.find_all('p', limit=3)
-    memory, time = map(lambda x: x.split(': ')[1], p[1].get_text().replace('[', '').split(', '))
+    memory, time = map(lambda x: x.split(': ')[
+                       1], p[1].get_text().replace('[', '').split(', '))
     category = [{"name": c} for c in p[2].get_text().split(', ')]
 
+    LANGUAGE_DICT = {'py': 'python', 'java': 'java'}
+    language = LANGUAGE_DICT[os.path.splitext(answer_file)[1][1:]]
 
     return {
         'title': title,
@@ -59,6 +62,9 @@ def parse_problem_details(markdown_file, answer_file):
         'teir': teir,
         'grade': grade,
         'category': category,
+        'memory': memory,
+        'time': time,
+        'language': language,
         'answer': answer
     }
 
@@ -78,6 +84,17 @@ def create_database_page(data):
     json_data['properties']['Category']['multi_select'] = data['category']
     json_data['icon']['external']['url'] = data['icon']
 
+    # Set the code block
+    for i in range(0, len(data['answer']), 2000):
+        json_data['children'][3]['code']['rich_text'].append({
+            'type': 'text',
+            'text': {'content': data['answer'][i:i+2000]}
+        })
+    json_data['children'][3]['code']['language'] = data['language']
+
+    # Set the memory and time table
+    json_data['children'][1]["table"]['children'][1]['table_row']['cells'][0][0]['text']['content'] = data['memory']
+    json_data['children'][1]["table"]['children'][1]['table_row']['cells'][1][0]['text']['content'] = data['time']
     return json_data
 
 
