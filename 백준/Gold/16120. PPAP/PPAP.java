@@ -19,12 +19,6 @@ public class Main {
         if (sb.toString().equals("P")) {
             System.out.println("PPAP");
         }else {
-            for (int i = 0; i < sb.length(); i++) {
-                if (sb.charAt(i) == 'A') {
-                    System.out.println("NP");
-                    return;
-                }
-            }
             System.out.println("NP");
         }
     }
