@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main { // 주유소
+public class Main { // 주유소..?
     static int N; // 도시의 개수
     static int[] dist; // 인접 도로 길이
     static int[] price; // 주유소의 리터당 가격
@@ -27,8 +27,8 @@ public class Main { // 주유소
         }
 
         int unit = price[0]; // 기름 단위
-        int res = price[0] * dist[0]; // 총 금액
-        for (int i = 1; i < N - 1; i++) {
+        int res = 0; // 총 금액
+        for (int i = 0; i < N - 1; i++) {
             if (unit > price[i]) { // 기름 단위가 더 크다면,
                 unit = price[i];
             }
