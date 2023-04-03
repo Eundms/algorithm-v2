@@ -1,89 +1,132 @@
+import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.LinkedList;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
 import java.util.Queue;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Main {
-    static int R,C;
-    static Character[][] gmap; // 맵
-    static int result;  // 결과
-    static int[]dx = {-1,1,0,0};
-    static int[]dy={0,0,-1,1};
-    static Queue<int[]> q = new LinkedList<>(); // 다음에 방문할 곳 x,y
-    static Queue<int[]>water = new LinkedList<>(); // 물 list
-    // 고슴도치 위치
-    static int[]gsdc=new int[2];
+    static int R, C; // R행 C열
+    static char[][] box;
+    static char WATER = '*', ROCK = 'X', EMPTY = '.';
+    static int endX, endY;
+    static Queue<Node> water = new ArrayDeque<>();
+    static Queue<Node> dochi = new ArrayDeque<>();
 
-    public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        R = Integer.parseInt(st.nextToken());
+        C = Integer.parseInt(st.nextToken());
+        box = new char[R][C];
 
-        R=sc.nextInt();
-        C=sc.nextInt();
-        gmap=new Character[R][C];
-        result=Integer.MAX_VALUE;
-        for(int i=0;i<R;i++){
-            String line=sc.next();
-            for(int j=0;j<C;j++){
-                gmap[i][j]=line.charAt(j);
-                if (gmap[i][j]=='S') { // 초기 고슴도치 위치 - 1곳
-                    q.add(new int[]{i, j,0});
-                }else if(gmap[i][j]=='*'){
-                    water.add(new int[]{i,j});
+        for (int r = 0; r < R; r++) {
+            String str = br.readLine();
+            for (int c = 0; c < C; c++) {
+                box[r][c] = str.charAt(c);
+                if (box[r][c] == 'D') { //비버의 굴
+                    endX = r;
+                    endY = c;
+                } else if (box[r][c] == 'S') { //고슴도치 위치
+                    dochi.add(new Node(r, c, 0));
+                } else if (box[r][c] == WATER) { // 물이면,
+                    water.add(new Node(r, c, 0));
                 }
             }
         }
-        bfs();
-        // Integer.MAX_VALUE
-        if (result==Integer.MAX_VALUE)
-            System.out.println("KAKTUS");
-        else
-            System.out.println(result);
-        /*
-        for(int i=0;i<R;i++) {
-            for (int j = 0; j < C; j++) {
-                System.out.println(gmap[i][j]);
-            }
-        }*/
+
+        // 고슴도치 이동
+        // 물 확장
+        int res = bfs();
+        System.out.println(res == -1 ? "KAKTUS" : res);
+
     }
-    public static void bfs(){
-        while(!q.isEmpty()){
-            // 물 넘침
-            int water_len= water.size();
-            for(int i=0;i<water_len;i++){
-                int[]w_xy=water.poll();//[x,y]
-                for(int way=0;way<4;way++){
-                    int nx= w_xy[0]+dx[way];
-                    int ny=w_xy[1]+dy[way];
-                    if(nx>=0 &&nx<R&&ny>=0&&ny<C&&gmap[nx][ny]=='.'){
-                        gmap[nx][ny]='*'; // 물 넘침 표시
-                        water.add(new int[]{nx,ny});
+
+    static int[][] way = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+    private static int bfs() {
+        boolean[][] visited = new boolean[R][C];
+
+
+        // dochi
+        while (!dochi.isEmpty()) {
+            // water
+            if (!water.isEmpty()) {
+                int waterSize = water.size();
+
+                for (int s = 0; s < waterSize; s++) { // 같은 level 만큼 반복
+                    Node node = water.poll();
+                    if (node.x == endX && node.y == endY) {
+                        continue;
+                    }
+
+                    for (int w = 0; w < 4; w++) {
+                        int nx = node.x + way[w][0];
+                        int ny = node.y + way[w][1];
+
+                        if (nx < 0 || nx >= R || ny < 0 || ny >= C) {
+                            continue;
+                        }
+                        if (box[nx][ny] == ROCK || box[nx][ny] == WATER || box[nx][ny] == 'D') { // 벽, 물, 비버
+                            continue;
+                        }
+                        //System.out.println("WATER: "+nx+","+ny);
+                        box[nx][ny] = WATER;
+                        water.add(new Node(nx, ny, node.time + 1));
                     }
                 }
             }
-            // 고슴도치 이동
-            int gsdc_len =q.size();
-            for(int i=0;i<gsdc_len;i++){
-                int []q_xy=q.poll();//[x,y,이동시간]
-                for(int way=0;way<4;way++){
-                    int nx= q_xy[0]+dx[way];
-                    int ny=q_xy[1]+dy[way];
-                    if(nx>=0 && nx<R && ny>=0 && ny<C){
-                        if(gmap[nx][ny]=='D'){
-                            result=Math.min(result,q_xy[2]+1);//(result,직전까지이동시간+1)
-                            return;
-                        }else if(gmap[nx][ny]=='.'){
-                            gmap[nx][ny]='S';
-                            q.add(new int[]{nx,ny,q_xy[2]+1});
 
-                        }
-                    }
+            //printMap(box);
+
+            int size = dochi.size(); // 같은 level
+            for (int s = 0; s < size; s++) { // 같은 level 만큼 반복
+                Node node = dochi.poll();
+                if (visited[node.x][node.y]) {
+                    continue;
                 }
+                visited[node.x][node.y] = true;
 
+                if (node.x == endX && node.y == endY) {
+                    return node.time;
+                }
+                for (int w = 0; w < 4; w++) {
+                    int nx = node.x + way[w][0];
+                    int ny = node.y + way[w][1];
+
+                    if (nx < 0 || nx >= R || ny < 0 || ny >= C || visited[nx][ny]) {
+                        continue;
+                    }
+                    if (box[nx][ny] == EMPTY || box[nx][ny] == 'D') { // .이나 비버 굴이어야 이동이 가능하다
+                        dochi.add(new Node(nx, ny, node.time + 1));
+                    }
+
+                }
             }
 
 
         }
+        return -1;
+    }
 
+    private static void printMap(char[][] box) {
+        for (int i = 0; i < R; i++) {
+            for (int j = 0; j < C; j++) {
+                System.out.print(box[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    static class Node {
+        int x, y, time;
+
+        public Node(int x, int y, int time) {
+            this.x = x;
+            this.y = y;
+            this.time = time;
+        }
     }
 }
