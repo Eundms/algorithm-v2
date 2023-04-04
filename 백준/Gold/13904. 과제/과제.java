@@ -22,23 +22,18 @@ public class Main { //과제
         }
 
         int[] hw = new int[1000 + 1];
-
+        int cnt = 0;
         while (!pq.isEmpty()) { // 남은 일수 1 ~ 1000
             Node now = pq.poll();
             for (int hwDay = now.limit; hwDay > 0; hwDay--) { // 제일 늦게 과제 하기
                 if (hw[hwDay] == 0) {
-                    hw[hwDay] = now.score;
-                    break;
-                } else if (hw[hwDay] < now.score) {
+                    cnt += now.score;
                     hw[hwDay] = now.score;
                     break;
                 }
             }
         }
-        int cnt = 0;
-        for(int i = 1; i<=1000;i++){
-            cnt += hw[i];
-        }
+ 
         System.out.println(cnt);
 
     }
