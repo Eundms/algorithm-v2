@@ -5,17 +5,13 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Main {
     static int N;
     static String[] strList;
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        N = Integer.parseInt(br.readLine()); // 단어의 개수
-        strList = new String[N];
-        for (int n = 0; n < N; n++) {
-            strList[n] = br.readLine();
-        }
+
         Comparator<String> comparator = new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
@@ -25,16 +21,18 @@ public class Main {
                 return o1.length() - o2.length();
             }
         };
-        Arrays.sort(strList, comparator);
 
-        Set<String> stringSet = new HashSet<>();
+        TreeSet<String> treeSet = new TreeSet<>(comparator);
 
-        for(int i = 0; i < N ; i++){
-            if(!stringSet.contains(strList[i])){
-                System.out.println(strList[i]);
-                stringSet.add(strList[i]);
-            };
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        N = Integer.parseInt(br.readLine()); // 단어의 개수
+        strList = new String[N];
+        for (int n = 0; n < N; n++) {
+            treeSet.add(br.readLine());
+        }
 
+        while(!treeSet.isEmpty()){
+            System.out.println(treeSet.pollFirst());
         }
     }
 
