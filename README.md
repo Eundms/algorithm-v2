@@ -48,6 +48,7 @@
 |2798. 블랙잭|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2798.%E2%80%85%EB%B8%94%EB%9E%99%EC%9E%AD/README.md)|
 |3040. 백설 공주와 일곱 난쟁이|[링크](./%EB%B0%B1%EC%A4%80/Bronze/3040.%E2%80%85%EB%B0%B1%EC%84%A4%E2%80%85%EA%B3%B5%EC%A3%BC%EC%99%80%E2%80%85%EC%9D%BC%EA%B3%B1%E2%80%85%EB%82%9C%EC%9F%81%EC%9D%B4/%EB%B0%B1%EC%84%A4%E2%80%85%EA%B3%B5%EC%A3%BC%EC%99%80%E2%80%85%EC%9D%BC%EA%B3%B1%E2%80%85%EB%82%9C%EC%9F%81%EC%9D%B4.java)|
 |9086. 문자열|[링크](./%EB%B0%B1%EC%A4%80/Bronze/9086.%E2%80%85%EB%AC%B8%EC%9E%90%EC%97%B4/README.md)|
+|9316. Hello Judge|[링크](./%EB%B0%B1%EC%A4%80/Bronze/9316.%E2%80%85Hello%E2%80%85Judge/Hello%E2%80%85Judge.java)|
 ### 🚀 Gold
 | 문제번호 | 링크 |
 | ----- | ----- |
