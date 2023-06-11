@@ -1,48 +1,38 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-
 public class Main {
-    static int N; // 수열의 크기
-    static int[] arr; // 수열에 포함되는 수;
-    static int X; // 자연수 X
+    static int[] num;
+    static int target;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        N = Integer.parseInt(br.readLine()); // N개의 서로 다른 양의 정수
-        arr = new int[N]; // N개의 서로 다른 양의 정수
 
-        StringTokenizer st;
-        st = new StringTokenizer(br.readLine());
-        for (int n = 0; n < N; n++) {
-            arr[n] = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(br.readLine()); // n개의 서로 다른 양의 정수
+        num = new int[N];
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < N; i++) {
+            num[i] = Integer.parseInt(st.nextToken());
         }
+        target = Integer.parseInt(br.readLine());
 
-        X = Integer.parseInt(br.readLine());
-
-        Arrays.sort(arr);
-
-        //System.out.println(" >> "+Arrays.toString(arr));
-
+        Arrays.sort(num);
         int cnt = 0;
-        int i = 0, j = N - 1;
-        while (i < j) {
-            int sum = arr[i] + arr[j];
-            if (sum == X) {
-                //System.out.println(arr[i] + " + " + arr[j] + " = " + X);
+        int left = 0, right = N - 1;
+        while (left < right) {
+            int sum = num[left] + num[right];
+            if (sum == target) {
                 cnt += 1;
-                i++;
-            } else if (sum > X) {
-                j--;
-            } else { // sum < X
-                i++;
+                left += 1;
+            } else if (sum > target) {
+                right -= 1;
+            } else { // sum < target
+                left += 1;
             }
         }
         System.out.println(cnt);
+
     }
-
-
 }
