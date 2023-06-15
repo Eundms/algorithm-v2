@@ -220,6 +220,7 @@
 |6603. 로또|[링크](./%EB%B0%B1%EC%A4%80/Silver/6603.%E2%80%85%EB%A1%9C%EB%98%90/README.md)|
 |7785. 회사에 있는 사람|[링크](./%EB%B0%B1%EC%A4%80/Silver/7785.%E2%80%85%ED%9A%8C%EC%82%AC%EC%97%90%E2%80%85%EC%9E%88%EB%8A%94%E2%80%85%EC%82%AC%EB%9E%8C/%ED%9A%8C%EC%82%AC%EC%97%90%E2%80%85%EC%9E%88%EB%8A%94%E2%80%85%EC%82%AC%EB%9E%8C.java)|
 |9012. 괄호|[링크](./%EB%B0%B1%EC%A4%80/Silver/9012.%E2%80%85%EA%B4%84%ED%98%B8/%EA%B4%84%ED%98%B8.java)|
+|9465. 스티커|[링크](./%EB%B0%B1%EC%A4%80/Silver/9465.%E2%80%85%EC%8A%A4%ED%8B%B0%EC%BB%A4/%EC%8A%A4%ED%8B%B0%EC%BB%A4.java)|
 ## 📚 프로그래머스
 ### 🚀 lv0
 | 문제번호 | 링크 |
