@@ -55,14 +55,15 @@ public class Main {
     static int bfs(int i, int j) { // L명 이상, R명 이하
 
         Queue<int[]> queue = new ArrayDeque<>();
-
         queue.add(new int[]{i, j});
-        members.add(new int[]{i,j});
-        visited[i][j] = true;
 
-        int sumOfUnion = box[i][j];
+        int sumOfUnion = 0;
         while (!queue.isEmpty()) {
             int[] now = queue.poll();
+            if(visited[now[0]][now[1]]) continue;
+            sumOfUnion += box[now[0]][now[1]];
+            visited[now[0]][now[1]] = true;
+            members.add(new int[]{now[0],now[1]});
 
             for (int w = 0; w < 4; w++) {
                 int nx = now[0] + way[w][0];
@@ -71,9 +72,6 @@ public class Main {
                 int abs = Math.abs(box[now[0]][now[1]] - box[nx][ny]);
                 if (abs >= L && abs <= R) {
                     queue.add(new int[]{nx, ny});
-                    members.add(new int[]{nx,ny});
-                    sumOfUnion += box[nx][ny];
-                    visited[nx][ny] = true;
                 }
             }
         }
