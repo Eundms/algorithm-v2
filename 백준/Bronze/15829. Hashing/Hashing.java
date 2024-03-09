@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -12,11 +11,12 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		L = Integer.parseInt(br.readLine());
 		str = br.readLine();
-		
+		long pow = 1;
 		long sum = 0;
 		for(int i = 0; i < str.length(); i++) {
 			int val = str.charAt(i) - 'a' + 1;
-			sum += (val * Math.pow(31,i))%1234567891;
+			sum += (val * pow);
+			pow = (pow * 31)%1234567891;
 		}
 		System.out.println((int)(sum%1234567891));
 	}
