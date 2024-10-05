@@ -1,51 +1,36 @@
+
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
-
 public class Main {
-    static int N, S;
-    static int[] arr;
-    static boolean[] visited;
-    static int res;
+	static int N, S;
+	static int[] box;
+	static int ans;
+	
+	public static void main(String[] args) throws Exception {
+	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    StringTokenizer st = new StringTokenizer(br.readLine());
+	    N = Integer.parseInt(st.nextToken()); // 정수의 개수
+	    S = Integer.parseInt(st.nextToken()); // 수열의 원소를 다 더한 값
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        N = Integer.parseInt(st.nextToken()); // 정수 나타내는 N
-        S = Integer.parseInt(st.nextToken()); // 정수 S
-
-        arr = new int[N];
-        st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-        }
-
-        //합이 S가 되는 부분 수열의 개수?
-        visited = new boolean[N];
-        subset(0);
-        System.out.println(res);
-    }
-
-    private static void subset(int cnt) {
-        if (cnt == N) {
-            int cntObj=0;
-            int sum = 0;
-            for (int i = 0; i < N; i++) {
-                if (visited[i]) {
-                    cntObj+=1;
-                    sum += arr[i];
-                }
-            }
-            if (sum == S && cntObj>0) {
-                res +=1;
-            }
-            return ;
-        }
-        visited[cnt] = true;
-        subset(cnt + 1);
-
-        visited[cnt] = false;
-        subset(cnt + 1);
-    }
+	    box = new int[N];
+	    st = new StringTokenizer(br.readLine());
+	    for(int i = 0; i < N; i++) {
+	    	box[i] = Integer.parseInt(st.nextToken());
+	    }
+	    dfs(0, 0, 0);
+	    System.out.println(ans);
+	}
+	
+	static void dfs(int n, int s, int cnt) {
+		if(n == N) {
+			if(s == S && cnt > 0) {
+				ans += 1;
+			}
+			return;
+		}
+		dfs(n + 1, s + box[n], cnt + 1);
+		dfs(n + 1, s, cnt);
+	}
 }
