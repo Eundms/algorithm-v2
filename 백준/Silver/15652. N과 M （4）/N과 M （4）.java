@@ -1,40 +1,39 @@
 
-
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
-
 public class Main {
-    static int N, M; // 자연수 N과 M
-    static boolean[] visited;
-    static int[] numbers;
-    static StringBuilder sb = new StringBuilder();
+	static int N, M;
+	static int[] arr;
+	static StringBuilder sb;
+	public static void main(String[] args) throws Exception {
+	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    StringTokenizer st = new StringTokenizer(br.readLine());
+	    N = Integer.parseInt(st.nextToken()); // 정수의 개수
+	    M = Integer.parseInt(st.nextToken()); // 수열의 원소를 다 더한 값
 
-    // 1 ~ N 자연수 중 M개 고르기
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
+	    arr = new int[M]; 
+	    sb = new StringBuilder();
+	    back(0, 1);
+	    System.out.println(sb);
+	 
+	}
+	static void back(int cnt, int val) {
+		if(cnt == M) {
+			for(int i = 0; i < M; i++) {
+				sb.append(arr[i]+" ");
+			}
+			sb.append("\n");
+			return;
+		}
+		
+		for (int i = val; i <= N; i++) { // 선택지
+			arr[cnt] = i;
+			back(cnt + 1, i);
+		}
+		
+	}
+	
 
-        visited = new boolean[N + 1]; // 방문 1~ N
-        numbers = new int[M];
-        perm(0,1);
-        System.out.print(sb);
-    }
-
-    private static void perm(int cnt,int start) {
-        if (cnt == M) { // 길이가 M인 수열
-            for (int m = 0; m < M; m++) {
-                sb.append(numbers[m]+" ");
-            }
-            sb.append("\n");
-            return;
-        }
-        for (int i = start; i <= N; i++) {
-            numbers[cnt] = i;
-            perm(cnt + 1,i);
-        }
-    }
 }
