@@ -1,46 +1,43 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
-    private static int N, M;
-    private static int answer;
-    private static boolean[] visited;
-    private static int[] arr; // N개중
-    private static int[] numbers;// 3개 뽑은
+	static int N, M; // (카드의 개수) (외칠 숫자)
+	static int[] box;
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
 
-        N = Integer.parseInt(st.nextToken()); // 카드의 개수
-        M = Integer.parseInt(st.nextToken()); // 3장의 카드의 합은 M을 넘지 않으면서 M과 최대한 가깝게
+		st = new StringTokenizer(br.readLine());
+		box = new int[N];
+		for (int n = 0; n < N; n++) {
+			box[n] = Integer.parseInt(st.nextToken());
+		}
+		Arrays.sort(box);
+		int value = 0;
+		int diff = Integer.MAX_VALUE;
+		for (int i = 0; i < N; i++) {
+			if (M < box[i]) {
+				break;
+			}
+			for (int j = i + 1; j < N; j++) {
+				for (int k = j + 1; k < N; k++) {
+					int sum = box[i] + box[j] + box[k];
+					if (sum <= M) {
+						if (M - sum < diff) {
+							diff = M - sum;
+							value = sum;
+						}
+					}
+				}
+			}
+		}
+		System.out.println(value);
+	}
 
-        arr = new int[N];
-        st = new StringTokenizer(br.readLine());
-        for (int n = 0; n < N; n++) {
-            arr[n] = Integer.parseInt(st.nextToken());
-        }
-
-        visited = new boolean[N]; // 방문 여부
-        numbers = new int[3];
-        comb(0, 0,0);
-        System.out.println(answer);
-    }
-
-
-    private static void comb(int cnt,int start, int sum) {
-        if (cnt == 3) { // 3장의 카드 합은 M을 넘지 않으면서, M과 최대한 가깝게
-            if(sum<=M) {
-                if (M - answer > M - sum) {
-                    answer = sum;
-                }
-            }
-            return;
-        }
-        for (int i = start; i < N; i++) {
-            comb(cnt + 1,i+1, sum + arr[i]);
-        }
-    }
 }
