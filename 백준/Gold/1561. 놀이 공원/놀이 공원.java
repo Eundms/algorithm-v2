@@ -41,11 +41,12 @@ public class Main {
 			long time = (right - left) / 2 + left; // 범위 안벗어나도록
 			if (rideCnt(time) >= N) {
 				right = time - 1;
+				minTime = time;
 			} else {
 				left = time + 1;
 			}
 		}
-		minTime = left;
+
 		long childRideCnt = rideCnt(minTime - 1);
 		for (int i = 0; i < M; i++) {
 			if (minTime % rides[i] == 0) { // minTime에 이용가능한 놀이기구
