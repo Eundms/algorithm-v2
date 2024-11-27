@@ -23,8 +23,10 @@ public class Main {
 
 		traverse(1);
 		int rightNodeCnt = 0;
-		for (int i = 1; tree[i].right != -1; i = tree[i].right) {
+		int i = 1;
+		while (tree[i].right != -1) {
 			rightNodeCnt += 1;
+			i = tree[i].right;
 		}
 		int moveCnt = (N - 1) * 2;
 		moveCnt -= rightNodeCnt;
