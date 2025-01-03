@@ -18,6 +18,33 @@ public class Main {
 			}
 		}
 
+		int[] heart = findHeart();
+		int i = heart[0], j = heart[1];
+
+		System.out.println((i + 1) + " " + (j + 1)); // 심장 위치
+		// 왼쪽팔
+		int leftHandLen = findLen(i, j - 1, 0, -1);
+		System.out.print(leftHandLen + " ");
+
+		// 오른쪽 팔
+		int rightHandLen = findLen(i, j + 1, 0, 1);
+		System.out.print(rightHandLen + " ");
+
+		// 허리
+		int waist = findLen(i + 1, j, 1, 0);
+		System.out.print(waist + " ");
+
+		// 왼쪽 다리
+		int x = i + waist, y = j;
+		int leftLeg = findLen(x + 1, y - 1, 1, 0);
+		System.out.print(leftLeg + " ");
+		// 오른쪽 다리
+		int rightLeg = findLen(x + 1, y + 1, 1, 0);
+		System.out.print(rightLeg);
+
+	}
+
+	static int[] findHeart() {
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				if (box[i][j] == '*') {
@@ -35,31 +62,12 @@ public class Main {
 						}
 					}
 					if (isHeart) {
-						System.out.println((i + 1) + " " + (j + 1)); // 심장 위치
-						// 왼쪽팔
-						int leftHandLen = findLen(i, j - 1, 0, -1);
-						System.out.print(leftHandLen + " ");
-
-						// 오른쪽 팔
-						int rightHandLen = findLen(i, j + 1, 0, 1);
-						System.out.print(rightHandLen + " ");
-
-						// 허리
-						int waist = findLen(i + 1, j, 1, 0);
-						System.out.print(waist + " ");
-
-						// 왼쪽 다리
-						int x = i + waist, y = j;
-						int leftLeg = findLen(x + 1, y - 1, 1, 0);
-						System.out.print(leftLeg + " ");
-						// 오른쪽 다리
-						int rightLeg = findLen(x + 1, y + 1, 1, 0);
-						System.out.print(rightLeg);
-
+						return new int[] { i, j };
 					}
 				}
 			}
 		}
+		return new int[] { -1, -1 };
 	}
 
 	static int findLen(int x, int y, int dx, int dy) {
