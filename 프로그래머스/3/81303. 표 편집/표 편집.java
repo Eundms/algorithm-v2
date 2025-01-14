@@ -7,32 +7,31 @@ class Solution {
             activeRows.add(i);
         }
         
-        Stack<Integer> deletedStack = new Stack<>();
+        Stack<Integer> deleted = new Stack<>();
         int current = k;
 
         for (String command : cmd) {
-            char cmdType = command.charAt(0);
-            if (cmdType == 'U') {
+            char type = command.charAt(0);
+            if (type == 'U') {
                 int x = Integer.parseInt(command.split(" ")[1]);
                 while (x-- > 0) {
                     current = activeRows.lower(current);
                 }
-            } else if (cmdType == 'D') {
+            } else if (type == 'D') {
                 int x = Integer.parseInt(command.split(" ")[1]);
                 while (x-- > 0) {
                     current = activeRows.higher(current);
                 }
-            } else if (cmdType == 'C') {
-                deletedStack.push(current);
+            } else if (type == 'C') {
+                deleted.push(current);
                 activeRows.remove(current);
                 if (activeRows.higher(current) != null) {
                     current = activeRows.higher(current);
                 } else {
                     current = activeRows.lower(current);
                 }
-            } else if (cmdType == 'Z') {
-                int restored = deletedStack.pop();
-                activeRows.add(restored);
+            } else if (type == 'Z') {
+                activeRows.add(deleted.pop());
             }
         }
 
