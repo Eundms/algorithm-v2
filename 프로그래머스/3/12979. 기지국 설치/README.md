@@ -1,6 +1,6 @@
 # [level 3] 기지국 설치 - 12979 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12979#qna) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12979) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 01월 16일 21:02:55
+2025년 01월 16일 21:03:17
 
 ### 문제 설명
 
