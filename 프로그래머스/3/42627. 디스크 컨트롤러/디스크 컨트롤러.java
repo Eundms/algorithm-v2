@@ -13,20 +13,21 @@ class Solution {
         int jIdx = 0;
         int curTime = 0;
         int sumReturnTime = 0;
+        
+        int finishedCnt = 0;
         while(true) {
+            if(finishedCnt == JOB_SIZE)break;
             while(jIdx < JOB_SIZE && arr.get(jIdx).reqTime <= curTime) {
                 pq.add(arr.get(jIdx));
                 jIdx++;
             }
-            if(pq.isEmpty() && jIdx >= JOB_SIZE){
-               break; 
-            }
+      
             if(!pq.isEmpty()){
                 Item cur = pq.poll();
-                int endTime = cur.cost + curTime;
-                int returnTime = endTime - cur.reqTime ;
+                int returnTime = cur.cost + curTime - cur.reqTime ;
                 sumReturnTime += returnTime;
-                curTime = endTime;                
+                curTime += cur.cost;     
+                finishedCnt += 1;
             }else {
                 curTime += 1;
             }
