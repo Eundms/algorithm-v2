@@ -1,103 +1,107 @@
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main { //16637
-  static int testCase;
-  static char[][] box;
-  static char START = '@', WALL = '#', EMPTY = '.', FIRE='*';
-    public static void main(String[] args) throws Exception{
-      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-      testCase = Integer.parseInt(br.readLine());
-      for (int t = 0; t < testCase; t++) {
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int w = Integer.parseInt(st.nextToken());
-        int h = Integer.parseInt(st.nextToken());
-        boolean[][] sangunVisited = new boolean[h][w];
+public class Main {
+	static int T;
+	static char[][] box;
+	static int W, H;
+	static char WALL = '#', EMPTY = '.', FIRE = '*';
+	static int sx, sy;
+	static int[][] way = { { -1, 0 }, { 1, 0 }, { 0, 1 }, { 0, -1 } };
+	static List<int[]> fires;
 
-        Queue<int[]> sangun = new ArrayDeque<>();
-        Queue<int[]> fires = new ArrayDeque<>();
-        box = new char[h][w];
-        for (int i = 0; i < h; i++) {
-          String line = br.readLine();
-          for (int j = 0; j < w; j++) {
-            box[i][j] = line.charAt(j);
-            if (box[i][j] == START) {
-            	sangun.add(new int[] {i, j});
-            	sangunVisited[i][j] = true;
-            } else if (box[i][j] == FIRE) {
-            	fires.add(new int[] {i, j});
-            }
-          }
-        }
-        
-        // 1) 불 이동 : 불이 옮겨진 칸 또는 이제 불이 붙으려는 칸으로 움직일 수 없음
-        // 2) 상근이 이동 
-        int[][] way = {{-1,0}, {1,0}, {0,-1}, {0,1}};
-       
-        boolean isExit = false;
-        int exitTime = 1;
-        while(true) {
-            // 불 이동
-            Queue<int[]> newFires = new ArrayDeque<>();
-            while(!fires.isEmpty()) {
-            	int[] now = fires.poll();
-            	
-            	for(int wi = 0; wi < 4; wi++) {
-            		int nx = now[0] + way[wi][0];
-            		int ny = now[1] + way[wi][1];
-            		if(nx < 0 || nx >= h || ny < 0 || ny >= w) {
-            			continue;
-            		}
-            		if(box[nx][ny] == WALL || box[nx][ny] == FIRE) {
-            			continue;
-            		}
-            		box[nx][ny] = FIRE;
-            		newFires.add(new int[] {nx, ny});
-            	}	
-            }
-            
-            // 상근이 이동
-            Queue<int[]> nextSangun = new ArrayDeque<>();
-            
-            while(!sangun.isEmpty()) {
-            	int[] now = sangun.poll();
-            	
-                for (int wi = 0; wi < 4; wi ++) {
-                	int nx = now[0] + way[wi][0];
-                	int ny = now[1] + way[wi][1];
-                	if(nx < 0 || nx >= h || ny < 0 || ny >= w) {isExit = true; break;}
-                	if(sangunVisited[nx][ny])continue;
-                	if (box[nx][ny] == EMPTY) {
-                    	nextSangun.add(new int[] {nx, ny});  
-                    	sangunVisited[nx][ny] = true;
-                	}
-                }
-            }
-            if(isExit) { // 성공 조건
-            	break;
-            }
-         
-            if (nextSangun.isEmpty()) { // 탈출 불가능
-            	break;
-            }
-            
-            // 다음 가능한 상근이 위치
-            sangun = nextSangun;
-            // 다음불
-            fires = newFires;
-            exitTime++;
-        }
-        
-        if(isExit) {
-        	System.out.println(exitTime);
-        } else {
-        	System.out.println("IMPOSSIBLE");
-        }
-      }
-    }
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		T = Integer.parseInt(br.readLine());
 
+		for (int t = 0; t < T; t++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			W = Integer.parseInt(st.nextToken());
+			H = Integer.parseInt(st.nextToken());
+			fires = new ArrayList<>();
+			box = new char[H][W];
+
+			for (int h = 0; h < H; h++) {
+				String str = br.readLine();
+				for (int w = 0; w < W; w++) {
+					box[h][w] = str.charAt(w);
+					if (box[h][w] == '@') {
+						sx = h;
+						sy = w;
+						box[h][w] = EMPTY;
+					} else if (box[h][w] == FIRE) {
+						fires.add(new int[] { h, w });
+					}
+				}
+			}
+
+			long[][] fireTime = new long[H][W];
+			for (int h = 0; h < H; h++) {
+				Arrays.fill(fireTime[h], Long.MAX_VALUE);
+			}
+
+			Queue<int[]> spread = new ArrayDeque<>();
+			for (int[] fire : fires) {
+				spread.add(new int[] { fire[0], fire[1], 0 });
+				fireTime[fire[0]][fire[1]] = 0;
+			}
+
+			while (!spread.isEmpty()) {
+				int[] now = spread.poll();
+
+				for (int w = 0; w < 4; w++) {
+					int nx = now[0] + way[w][0];
+					int ny = now[1] + way[w][1];
+
+					if (!inRange(nx, ny) || fireTime[nx][ny] != Long.MAX_VALUE || box[nx][ny] != EMPTY) {
+						continue;
+					}
+
+					fireTime[nx][ny] = now[2] + 1;
+					spread.add(new int[] { nx, ny, now[2] + 1 });
+				}
+			}
+
+			long result = movePerson(fireTime);
+			System.out.println(result == Long.MAX_VALUE ? "IMPOSSIBLE" : result);
+		}
+	}
+
+	static long movePerson(long[][] fireTime) {
+		Queue<int[]> move = new ArrayDeque<>();
+		boolean[][] visited = new boolean[H][W];
+		move.add(new int[] { sx, sy, 0 });
+		visited[sx][sy] = true;
+
+		while (!move.isEmpty()) {
+			int[] now = move.poll();
+			int x = now[0], y = now[1], time = now[2];
+
+			for (int w = 0; w < 4; w++) {
+				int nx = x + way[w][0];
+				int ny = y + way[w][1];
+
+				if (!inRange(nx, ny))
+					return time + 1;
+				if (visited[nx][ny] || box[nx][ny] != EMPTY)
+					continue;
+				if (fireTime[nx][ny] <= time + 1)
+					continue;
+
+				visited[nx][ny] = true;
+				move.add(new int[] { nx, ny, time + 1 });
+			}
+		}
+		return Long.MAX_VALUE;
+	}
+
+	static boolean inRange(int x, int y) {
+		return x >= 0 && x < H && y >= 0 && y < W;
+	}
 }
