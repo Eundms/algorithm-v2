@@ -13,26 +13,26 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		T = Integer.parseInt(br.readLine()); // 목표 값
-		K = Integer.parseInt(br.readLine()); // 동전의 가지수
-
-		pi = new int[K]; // 동전의 금액
-		ni = new int[K]; // 개수
+		T = Integer.parseInt(br.readLine());
+		K = Integer.parseInt(br.readLine());
+		pi = new int[K]; // 동전 금액
+		ni = new int[K]; // 동전의 가지수
 		for (int k = 0; k < K; k++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			pi[k] = Integer.parseInt(st.nextToken());
 			ni[k] = Integer.parseInt(st.nextToken());
 		}
 
-		// i번째 종류까지 고려했을 때 T원
+		// k번째 종류까지 고려했을 때 T원
 		int[] dp = new int[T + 1];
-		dp[0] = 1; // 0원 만드는 경우 항상 1개
-		for (int i = 0; i < K; i++) { // i번째 종류 동전 사용
+		dp[0] = 1;
+
+		for (int k = 0; k < K; k++) {// k 번째 동전을
 			int[] next = new int[T + 1];
-			for (int t = 0; t <= T; t++) { // t원 만드는 경우
-				for (int c = 0; c <= ni[i]; c++) {
-					if (t - pi[i] * c >= 0) {
-						next[t] += dp[t - pi[i] * c];
+			for (int c = 0; c <= ni[k]; c++) { // c개 사용했을 때
+				for (int t = 0; t <= T; t++) { // T원을 만들 수 있는지
+					if (t - pi[k] * c >= 0) {
+						next[t] += dp[t - pi[k] * c];
 					}
 				}
 			}
